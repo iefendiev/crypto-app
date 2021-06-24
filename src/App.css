@@ -88,6 +88,12 @@ input {
   .grid-logo-name {
     margin: auto;
   }
+  #root {
+    padding: 0;
+  }
+  input {
+    width: 100%;
+  }
 }
 
 .trend {
