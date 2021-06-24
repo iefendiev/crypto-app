@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Search from './components/Search';
+import CryptoDisplay from './components/CryptoDisplay';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import axios from 'axios';
+
+const queryClient = new QueryClient(); // Instance of QueryClient
 
 function App() {
+  const [search, setSearch] = useState('');
+  const fetchApi = async () =>
+    axios
+      .get(
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+      )
+      .then((res) => res.data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <h1>Coin Analytics</h1>
+        <Search search={search} setSearch={setSearch} />
+        <CryptoDisplay fetchApi={fetchApi} search={search} />
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
