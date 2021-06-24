@@ -30,7 +30,12 @@ const CryptoDisplay = ({ fetchApi, search }) => {
                 <div className="coin-item" key={coin.id}>
                   <div className="grid-rank">{data.indexOf(coin) + 1}</div>
                   <img className="coin-logo" src={coin.image} alt="coin-logo" />
-                  <div className="grid-name">{coin.name}</div>
+                  <div className="grid-name">
+                    <span>{coin.name}</span>{' '}
+                    <span style={{ fontSize: '0.9rem' }}>
+                      {coin.symbol.toUpperCase()}
+                    </span>
+                  </div>
                   <div>$ {numberWithCommas(coin.current_price.toFixed(2))}</div>
                   <div className="grid-coin-marketCap">
                     $ {numberWithCommas(coin.market_cap)}
