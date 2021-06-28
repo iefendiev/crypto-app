@@ -12,11 +12,11 @@ const CryptoDisplay = ({ fetchApi, search }) => {
   return (
     <div className="coin-window">
       <div className="caption">
-        <div className="grid-rank"># Rank</div>
+        <div className="grid-rank">Rank</div>
         <div></div>
         <div className="grid-logo-name">Coin</div>
-        <div>Current Price</div>
-        <div className="grid-coin-marketCap">Market Cap</div>
+        <div className="grid-price">Current Price</div>
+        <div className="grid-marketCap">Market Cap</div>
         <div className="grid-coin-price">Price Change in 24h</div>
       </div>
       <div className="coins">

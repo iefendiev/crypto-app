@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Search from './components/Search';
 import CryptoDisplay from './components/CryptoDisplay';
+import Footer from './components/Footer';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import axios from 'axios';
@@ -20,10 +21,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <h1>Coin Analytics</h1>
+        <h1>Crypto Coin Analytics</h1>
         <Search search={search} setSearch={setSearch} />
         <CryptoDisplay fetchApi={fetchApi} search={search} />
       </div>
+      <Footer />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
