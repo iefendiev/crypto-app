@@ -8,6 +8,7 @@ const Footer = () => {
       <a
         className="git-text"
         target="_blank"
+        rel="noreferrer"
         href="https://github.com/iefendiev"
       >
         Made by iefendiev
